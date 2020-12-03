@@ -1,4 +1,4 @@
-# FABM tutorial
+# FABM demonstration
 
 This repository offers guidance for getting started with [FABM](https://github.com/fabm-model/fabm). The ultimate goal is to develop a Lake Erie ERSEM-FVCOM model. Enroute to achieving this goal there will be opportunities to explore other biogeochemical-hydrodynamic model systems of increasing complexity.
 
