@@ -6,4 +6,4 @@ Coarse instructions, example configuration files, and sample data files are prov
 
 Much of the information and many of the resources provided here have been borrowed, rearranged, repackaged, co-opted, or copied from the developers of FABM and related models. I have done my best to provide credit and links to source materials where possible.
 
-Happy FABM-ing!!!
+If you find something that requires further explanation, feel free to contact me (Clayton) directly, or post comments via the [issues](https://github.com/NOAA-GLERL/FABM-tutorial/issues) page.
