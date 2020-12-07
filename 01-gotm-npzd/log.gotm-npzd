@@ -1,0 +1,80 @@
+ ------------------------------------------------------------------------
+ 0D FABM driver (using GOTM infrastructure)
+ FABM version:    unknown (unknown branch)
+ Started on  20201207 214515.623         
+ ------------------------------------------------------------------------
+    init_run
+ ------------------------------------------------------------------------
+        reading model setup namelists from run.nml
+        Simulation: test
+        
+ Surface photosynthetically active radiation will be calculated from time,
+        cloud cover, and the simulated location at (lat,long)
+           54.0000000000000        9.00000000000000     
+        Local PAR will be calculated from the surface value,
+        depth, and light extinction coefficient.
+        albedo_correction = T
+        initializing modules....
+    init_time
+        Time step:         1800.00000000000       seconds
+        Time format:               2
+        Start:          1998-01-01 00:00:00
+        Stop:           1999-01-01 00:00:00
+         ==>          365  day(s) and                      0  seconds ==> 
+                 17520  micro time steps
+    init environment
+        reading local environment data from:
+            env_nns_annual.dat
+    init_input
+        done
+        Reading shortwave radiation from:
+            env_nns_annual.dat
+        Reading temperature from:
+            env_nns_annual.dat
+        Reading salinity from:
+            env_nns_annual.dat
+    initialize FABM
+        reading configuration from:
+            fabm-gotm-npzd.yaml
+Initializing npzd...
+   model type: gotm/npzd
+   initialization succeeded.
+    output_manager
+    field_manager
+    init_output
+ Processing output category /:
+   - lon
+   - lat
+   - par
+   - temp
+   - salt
+   - npzd_nut
+   - npzd_phy
+   - npzd_zoo
+   - npzd_det
+   - npzd_PPR
+   - npzd_NPR
+   - npzd_PAR
+   - total_nitrogen_calculator_result
+   - attenuation_coefficient_of_photosynthetic_radiative_flux_calculator_result
+   - int_change_in_total_nitrogen
+ ------------------------------------------------------------------------
+    time_loop
+           0 %
+          10 %
+          20 %
+          30 %
+          40 %
+          50 %
+          60 %
+          70 %
+          80 %
+          90 %
+         100 %
+ ------------------------------------------------------------------------
+    clean_up
+ ------------------------------------------------------------------------
+ Finished on 20201207 214515.911         
+ CPU-time was in loop:    0.2874060      seconds
+ Sim-time/CPU-time:        109726311.464270     
+ ------------------------------------------------------------------------
