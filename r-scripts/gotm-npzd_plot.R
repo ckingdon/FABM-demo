@@ -1,11 +1,10 @@
 # based on sample code from Mark Rowe and https://www.r-bloggers.com/2016/08/a-netcdf-4-in-r-cheatsheet/
 # https://www.rdocumentation.org/packages/ncdf4/versions/1.17/topics/ncvar_get)
 
-
 # library for reading NetCDF files
 require(ncdf4)
+# rm(list=ls()) # delete all variables
 
-rm(list=ls())
 # setup working environment and read NetCDF file
 setwd("~/projects/fabm-demo/gotm-npzd/varplots")
 ncfn = "~/projects/fabm-demo/gotm-npzd/gotm-npzd.nc"
@@ -42,19 +41,19 @@ values = ncvar_get(nc,var, start = c(1,1,1), count=c(1,1,-1))
 # count= tells how many values to read
 plot(date,values,type="l",main=var,ylab=paste(var,'[',vunits,']',sep=' '))
 
-# loop to plot all variables
+# loop: plot all variables
+#par(ask=TRUE) # setting for "Hit <Return> to see next plot"
 varnames = names(nc$var) # get variables from nc
-par(ask=TRUE) # setting for "Hit <Return> to see next plot"
+
 for(ni in 1:length(varnames)){
-  
   var = varnames[ni]
   values = ncvar_get(nc, var, start=c(1,1,1), count=c(1,1,-1))
   vunits = ncatt_get(nc,var,"units"); vunits = vunits$value
   
-  # uncomment png() and graphics.off() to create .png file
+  # uncomment png() and graphics.off() to create .png files
   #png(file=paste0(var,".png"), width=4, height=4, units="in", pointsize = 10, res=300)
   plot(date,values,type="l",main=var,ylab=paste(var,'[',vunits,']',sep=' '))
   #graphics.off()
 }
 
-par(ask=FALSE) # disable "Hit <Return> to see next plot"
+#par(ask=FALSE) # disable "Hit <Return> to see next plot"
