@@ -1,0 +1,26 @@
+out_netcdf/gotm-npzd-carbonate-w_10-s_DAT-dic_2400:
+   title: FABM 0d driver model simulation
+   time_unit: dt
+   time_step: 6
+   variables:
+      - source: *
+#      - source: par
+#      - source: temp
+#      - source: salt
+#      - source: wind
+#      - source: carbonate_dic
+#      - source: carbonate_alk
+#      - source: carbonate_pH
+#      - source: carbonate_pCO2
+#      - source: carbonate_CarbA
+#      - source: carbonate_Bicarb
+#      - source: carbonate_Carb
+#      - source: carbonate_Om
+#      - source: carbonate_CO2_flux
+#      - source: npzd_nut
+#      - source: npzd_phy
+#      - source: npzd_zoo
+#      - source: npzd_det
+#      - source: npzd_PPR
+#      - source: npzd_NPR
+#      - source: npzd_PAR

@@ -1,0 +1,5 @@
+wind_speed:
+  constant_value: 10.0
+#  file: dat_files/wind.dat
+#  method: 2
+#  column: 1
