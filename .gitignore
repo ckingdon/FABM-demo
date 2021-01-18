@@ -11,4 +11,4 @@
 # no NetCDF files
 *.nc
 # no zz directories or files
-zz*
+**/zz*
