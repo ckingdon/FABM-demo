@@ -1,7 +1,3 @@
-# no NetCDF files
-*.nc
-# no zz directories or files
-zz*
 
 # https://codicious.wordpress.com/2018/06/06/how-would-you-exclude-all-extension-less-executable-from-your-repo/
 # ignore binary files ...
@@ -11,3 +7,9 @@ zz*
 !*.*
 # do not ignore directories
 !*/
+
+# no NetCDF files
+*.nc
+# no zz directories or files
+zz*
+zz*/
