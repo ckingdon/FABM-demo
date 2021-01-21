@@ -22,15 +22,15 @@ yunits = ncatt_get(nc,yvar,"units")
 yunits = yunits$value
 
 # --> velocity profile
-xvar = "u"  # horizontal velocity in xvar
+xvar = "u"  # x-velocity in xvar
 #xvalues = ncvar_get(nc, xvar)
 xvalues = ncvar_get(nc, xvar, start=c(1,1,1,1), count=c(-1,-1,-1,-1))
 xunits = ncatt_get(nc,xvar,"units")
 xunits = xunits$value
 
 # plot velocity profile
-png(file=paste0(ncfnprefix,"-",xvar,".png"), width=16, height=9, units="in", pointsize = 10, res=400)
-plot(xvalues[,25],yvalues[,1],main="velocity",
+png(file=paste0(ncfnprefix,"-",xvar,".png"), width=16, height=9, units="in", pointsize = 16, res=400)
+plot(xvalues[,25],yvalues[,1],main="velocity",  lwd=2,
      type="l", xlab=paste(xvar,'[',xunits,']'), ylab=paste(yvar,'[',yunits,']'),xlim=c(min(xvalues),max(xvalues)))
 graphics.off()
 
@@ -49,8 +49,8 @@ xunits = ncatt_get(nc,xvar,"units")
 xunits = xunits$value
 
 # plot diffusivity profile
-png(file=paste0(ncfnprefix,"-",xvar,".png"), width=16, height=9, units="in", pointsize = 10, res=400)
-plot(xvalues[,25][1:100],yvalues[,1],main="turbulent diffusivity of momentum",
+png(file=paste0(ncfnprefix,"-",xvar,".png"), width=16, height=9, units="in", pointsize = 16, res=400)
+plot(xvalues[,25][1:100],yvalues[,1],main="turbulent diffusivity of momentum", lwd=2,
    type="l", xlab=paste(xvar,'[',xunits,']'), ylab=paste(yvar,'[',yunits,']'),xlim=c(0,0.05))
 graphics.off()
 
@@ -69,8 +69,8 @@ xunits = ncatt_get(nc,xvar,"units")
 xunits = xunits$value
 
 # plot diffusivity profile
-png(file=paste0(ncfnprefix,"-",xvar,".png"), width=16, height=9, units="in", pointsize = 10, res=400)
-plot(xvalues[,2][1:100],yvalues[,1],main="turbulent flux of momentum (x)",
+png(file=paste0(ncfnprefix,"-",xvar,".png"), width=16, height=9, units="in", pointsize = 16, res=400)
+plot(xvalues[,25][1:100],yvalues[,1],main="turbulent flux of momentum (x)", lwd=2,
    type="l", xlab=paste(xvar,'[',xunits,']'), ylab=paste(yvar,'[',yunits,']'),xlim=c(min(xvalues),max(xvalues)))
 graphics.off()
 
