@@ -2,11 +2,11 @@
 # https://codicious.wordpress.com/2018/06/06/how-would-you-exclude-all-extension-less-executable-from-your-repo/
 # ignore binary files ...
 # ignore/blacklist everything
-*
+#*
 # do not ignore any files that are ____.__
-!*.*
+#!*.*
 # do not ignore directories
-!*/
+#!*/
 
 # no NetCDF files
 *.nc
