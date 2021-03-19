@@ -12,3 +12,5 @@
 *.nc
 # no zz directories or files
 **/zz*
+
+1d-gotm-erie-npzd/2021-03-02/sst2018.tif
