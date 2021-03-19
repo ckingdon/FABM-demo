@@ -18,26 +18,26 @@ temperature:                                 # temperature profile used for init
    method: 2                                 # method [0=off, 1=analytical, 2=from file; default=0]
    file: in_dat/t_prof_file.dat                     # path to file with series of profiles [default=]
    column: 1                                 # index of column to read from [default=1]
-#   analytical:
-#      method: 3                              # type of analytical initial temperature profile [1=constant, 2=two layers, 3=from salinity and buoyancy frequency; default=1]
-#      z_t1: 30.0                             # upper layer thickness [m; min=0.0; default=0.0]
-#      t_1: 20.0                              # upper layer temperature [Celsius; min=0.0; max=40.0; default=0.0]
-#      z_t2: 40.0                             # lower layer thickness [m; min=0.0; default=0.0]
-#      t_2: 15.0                              # lower layer temperature [Celsius; min=0.0; max=40.0; default=0.0]
-#      obs_NN: 2.56000000E-04                 # constant buoyancy frequency [s^-2; min=0.0; default=0.0]
+   analytical:
+      method: 3                              # type of analytical initial temperature profile [1=constant, 2=two layers, 3=from salinity and buoyancy frequency; default=1]
+      z_t1: 30.0                             # upper layer thickness [m; min=0.0; default=0.0]
+      t_1: 20.0                              # upper layer temperature [Celsius; min=0.0; max=40.0; default=0.0]
+      z_t2: 40.0                             # lower layer thickness [m; min=0.0; default=0.0]
+      t_2: 15.0                              # lower layer temperature [Celsius; min=0.0; max=40.0; default=0.0]
+      obs_NN: 2.56000000E-04                 # constant buoyancy frequency [s^-2; min=0.0; default=0.0]
    relax:                                    # relax model temperature to observed/prescribed value
       tau: 1.00000000E+15                    # time scale for interior layer [s; min=0.0; default=1.00000000E+15]
 salinity:                                    # salinity profile used for initialization and optionally relaxation
    method: 2                                 # method [0=off, 1=analytical, 2=from file; default=0]
    file: in_dat/s_prof_file.dat                     # path to file with series of profiles [default=]
    column: 1                                 # index of column to read from [default=1]
-#   analytical:
-#      method: 1                              # type of analytical initial salinity profile [1=constant, 2=two layers, 3=from temperature and buoyancy frequency; default=1]
-#      z_s1: 30.0                             # upper layer thickness [m; min=0.0; default=0.0]
-#      s_1: 20.0                              # upper layer salinity [psu; min=0.0; max=40.0; default=0.0]
-#      z_s2: 40.0                             # lower layer thickness [m; min=0.0; default=0.0]
-#      s_2: 15.0                              # lower layer salinity [psu; min=0.0; max=40.0; default=0.0]
-#      obs_NN: 2.56000000E-04                 # constant buoyancy frequency [s^-2; min=0.0; default=0.0]
+   analytical:
+      method: 1                              # type of analytical initial salinity profile [1=constant, 2=two layers, 3=from temperature and buoyancy frequency; default=1]
+      z_s1: 30.0                             # upper layer thickness [m; min=0.0; default=0.0]
+      s_1: 20.0                              # upper layer salinity [psu; min=0.0; max=40.0; default=0.0]
+      z_s2: 40.0                             # lower layer thickness [m; min=0.0; default=0.0]
+      s_2: 15.0                              # lower layer salinity [psu; min=0.0; max=40.0; default=0.0]
+      obs_NN: 2.56000000E-04                 # constant buoyancy frequency [s^-2; min=0.0; default=0.0]
    relax:                                    # relax model salinity to observed/prescribed value
       tau: 86400.0                           # time scale for interior layer [s; min=0.0; default=1.00000000E+15]
       tau_s: 86400.0                         # time scale for surface layer [s; min=0.0; default=1.00000000E+15]
@@ -231,14 +231,14 @@ mimic_3d:                                    # effects of horizontal gradients
    zeta:                                     # surface elevation
       method: 0                              # method [0=constant, 1=from tidal constituents, 2=from file; default=0]
       constant_value: 0.0                    # value to use throughout the simulation [m; default=0.0]
-#      file: in_dat/zeta_file.dat                    # path to file with time series [default=]
-#      column: 1                              # index of column to read from [default=1]
-#      period_1: 44714.0                      # period of 1st harmonic (eg. M2-tide) [s; default=44714.0]
-#      amp_1: 1.0                             # amplitude of 1st harmonic [m; default=0.0]
-#      phase_1: 0.0                           # phase of 1st harmonic [s; min=0.0; default=0.0]
-#      period_2: 43200.0                      # period of 2nd harmonic (eg. S2-tide) [s; default=43200.0]
-#      amp_2: 0.5                             # amplitude of 2nd harmonic [m; default=0.0]
-#      phase_2: 0.0                           # phase of 2nd harmonic [s; min=0.0; default=0.0]
+      file: in_dat/zeta_file.dat                    # path to file with time series [default=]
+      column: 1                              # index of column to read from [default=1]
+      period_1: 44714.0                      # period of 1st harmonic (eg. M2-tide) [s; default=44714.0]
+      amp_1: 1.0                             # amplitude of 1st harmonic [m; default=0.0]
+      phase_1: 0.0                           # phase of 1st harmonic [s; min=0.0; default=0.0]
+      period_2: 43200.0                      # period of 2nd harmonic (eg. S2-tide) [s; default=43200.0]
+      amp_2: 0.5                             # amplitude of 2nd harmonic [m; default=0.0]
+      phase_2: 0.0                           # phase of 2nd harmonic [s; min=0.0; default=0.0]
    w:                                        # vertical velocity
       max:                                   # maximum velocity
          method: 0                           # method [0=off, 1=constant, 2=from file; default=0]
