@@ -1,0 +1,249 @@
+ ------------------------------------------------------------------------
+ GOTM started on 2021/02/25 at 19:29:14
+ ------------------------------------------------------------------------
+    init_gotm
+ ------------------------------------------------------------------------
+        Reading yaml configuration from: yaml/gotm.erie-13.yaml
+        configuring modules ....
+    init_airsea_yaml
+        done
+    init_observations_yaml
+    init_stokes_drift_yaml
+        done
+    init_turbulence_yaml
+        done.
+    init_gotm_fabm_yaml
+        done.
+    init_meanflow_yaml
+        done
+    init_eqstate_yaml
+        done.
+ Initializing npzd...
+    model type: gotm/npzd
+    initialization succeeded.
+        GOTM Simulation
+        Using           96  layers to resolve a depth of   24.0000000000000     
+        The station Erie element 5332 is situated at (lat,long) 
+   41.9491666700000       -81.7053833300000     
+        Erie element 5332
+        initializing modules....
+    init_input
+        done
+    init_time
+        Time step:         3600.00000000000       seconds
+        Time format:               2
+        Start:          2018-05-31 00:00:00
+        Stop:           2018-10-02 00:00:00
+         ==>          124  day(s) and                      0  seconds ==> 
+                  2976  micro time steps
+    post_init_meanflow
+        allocation meanflow memory..
+        done.
+    init_tridiagonal
+        sigma coordinates (zooming possible)
+    post_init_observations
+        allocation observation memory..
+        Reading /temperature from:
+            in_dat/t_prof_2018_CHRP4.dat
+        Using constant /mimic_3d/ext_pressure/h=   0.000000000000000E+000
+        Using constant /mimic_3d/ext_pressure/dpdx=   0.000000000000000E+000
+        Using constant /mimic_3d/ext_pressure/dpdy=   0.000000000000000E+000
+        Using constant /mimic_3d/w/height=   0.000000000000000E+000
+        Using constant /mimic_3d/zeta=   0.000000000000000E+000
+        Using constant /surface/wave/Hs=   0.000000000000000E+000
+        Using constant /surface/wave/Tz=   0.000000000000000E+000
+        Using constant /surface/wave/phiw=   0.000000000000000E+000
+        done.
+    post_init_stokes_drift
+        allocation stokes_drift memory..
+        Stokes drift off.
+        done.
+    post_init_turbulence
+        allocation turbulence memory..
+        done.
+         
+        --------------------------------------------------------
+        You are using the k-epsilon model
+        with the following properties:
+         
+            ce1                                  =   1.44000000000000     
+            ce2                                  =   1.92000000000000     
+            ce3minus                             = -0.744378943205702     
+            ce3plus                              =   1.00000000000000     
+            sig_k                                =   1.00000000000000     
+            sig_e                                =   1.20000006940017     
+         
+            Value of the stability function
+            in the log-law,                   cm0 =  0.527046261454271     
+            in shear-free turbulence,        cmsf =  0.730911229264925     
+         
+            von Karman constant,           kappa =  0.400000000000000     
+            homogeneous decay rate,            d =  -1.08695652173913     
+            spatial decay rate (no shear), alpha =  -7.95123897814375     
+            length-scale slope (no shear),     L =  4.595791868626506E-002
+            steady-state Richardson-number, Ri_st=  0.250000000000000     
+        --------------------------------------------------------
+         
+    post_init_airsea
+        Calculating swr=swr(t(lon),lat,cloud)
+        Albedo method:            1
+        Reading /surface/meteo/u10 from:
+            in_dat/surface_meteo.dat
+        Reading /surface/meteo/v10 from:
+            in_dat/surface_meteo.dat
+        Reading /surface/meteo/airp from:
+            in_dat/surface_meteo.dat
+        Reading /surface/meteo/airt from:
+            in_dat/surface_meteo.dat
+        Reading /surface/meteo/hum from:
+            in_dat/surface_meteo.dat
+        Reading /surface/meteo/cloud from:
+            in_dat/surface_meteo.dat
+        Air-sea exchanges will be calculated
+            heat- and momentum-fluxes:
+                using Kondo formulation
+            net longwave radiation:
+                using Clark formulation
+        Using constant /surface/meteo/precip=   0.000000000000000E+000
+        rain_impact=       F
+        calc_evaporation=  F
+        Using constant /surface/sst=   0.000000000000000E+000
+        Using constant /surface/sss=   0.000000000000000E+000
+        done
+    register_all_variables()
+        register_coordinate_variables()
+        register_meanflow_variables()
+        register_airsea_variables()
+        register_observation_variables()
+        register_stokes_drift_variables()
+        register_turbulence_variables()
+        register_diagnostic_variables()
+    post_init_gotm_fabm
+        FABM pelagic state variables:
+            npzd_nut  mmol m-3  npzd nutrients
+            npzd_phy  mmol m-3  npzd phytoplankton
+            npzd_zoo  mmol m-3  npzd zooplankton
+            npzd_det  mmol m-3  npzd detritus
+        FABM bottom-bound state variables:
+        FABM surface-bound state variables:
+        FABM diagnostic variables defined on the full model domain:
+            npzd_nut_sms  mmol m-3/s  npzd nutrients sources-sinks
+            npzd_nut_w  m/s  npzd nutrients vertical velocity
+            npzd_phy_sms  mmol m-3/s  npzd phytoplankton sources-sinks
+            npzd_phy_w  m/s  npzd phytoplankton vertical velocity
+            npzd_zoo_sms  mmol m-3/s  npzd zooplankton sources-sinks
+            npzd_zoo_w  m/s  npzd zooplankton vertical velocity
+            npzd_det_sms  mmol m-3/s  npzd detritus sources-sinks
+            npzd_det_w  m/s  npzd detritus vertical velocity
+            npzd_dic_sms  mmol m-3/s  
+ npzd total dissolved inorganic carbon sources-sinks
+            npzd_dic_w  m/s  
+ npzd total dissolved inorganic carbon vertical velocity
+            npzd_PPR  mmol m-3 d-1  npzd gross primary production rate
+            npzd_NPR  mmol m-3 d-1  npzd net community production rate
+            npzd_PAR  W m-2  npzd photosynthetically active radiation
+            npzd__constant_1  m-1  
+ npzd attenuation_coefficient_of_photosynthetic_radiative_flux
+            npzd__attenuation_coefficient_of_photosynthetic_radiative_flux  m-1
+   npzd light extinction contribution computed by get_light_extinction
+            zero    zero
+            total_nitrogen_calculator_result  mmol m-3  
+ total_nitrogen_calculator result
+            
+ attenuation_coefficient_of_photosynthetic_radiative_flux_calculator_result  m-1
+   attenuation_coefficient_of_photosynthetic_radiative_flux_calculator result
+            zero_sms_tot    zero_sms_tot
+            zero_w_tot    zero_w_tot
+        
+ FABM diagnostic variables defined on a horizontal slice of the model domain:
+            npzd_nut_sfl  mmol m-3*m/s  npzd nutrients surface flux
+            npzd_nut_bfl  mmol m-3*m/s  npzd nutrients bottom flux
+            npzd_phy_sfl  mmol m-3*m/s  npzd phytoplankton surface flux
+            npzd_phy_bfl  mmol m-3*m/s  npzd phytoplankton bottom flux
+            npzd_zoo_sfl  mmol m-3*m/s  npzd zooplankton surface flux
+            npzd_zoo_bfl  mmol m-3*m/s  npzd zooplankton bottom flux
+            npzd_det_sfl  mmol m-3*m/s  npzd detritus surface flux
+            npzd_det_bfl  mmol m-3*m/s  npzd detritus bottom flux
+            npzd_dic_sfl  mmol m-3*m/s  
+ npzd total dissolved inorganic carbon surface flux
+            npzd_dic_bfl  mmol m-3*m/s  
+ npzd total dissolved inorganic carbon bottom flux
+            npzd__surface_albedo  -  
+ npzd albedo contribution computed by get_albedo
+            npzd__surface_drag_coefficient_in_air  -  
+ npzd surface drag contribution computed by get_drag
+            zero_hz    zero_hz
+            zero_sfl_tot    zero_sfl_tot
+            zero_bfl_tot    zero_bfl_tot
+            zero_hz_sms_tot    zero_hz_sms_tot
+        Using Eulerian solver
+        Using runge_kutta_4()
+        done.
+        done.
+ ------------------------------------------------------------------------
+    saving initial conditions
+ Processing output category /state:
+   - temp
+   - salt
+   - u
+   - uo
+   - v
+   - vo
+   - u_taubo
+   - xP
+   - h
+   - ho
+   - num
+   - nuh
+   - nus
+   - tke
+   - tkeo
+   - eps
+   - total_nitrogen_ini
+   - npzd_nut
+   - npzd_phy
+   - npzd_zoo
+   - npzd_det
+ ------------------------------------------------------------------------
+    time_loop
+           0 %
+          10 %
+          20 %
+          30 %
+          40 %
+          50 %
+          60 %
+          70 %
+          80 %
+          90 %
+         100 %
+ ------------------------------------------------------------------------
+    clean_up
+    clean_meanflow
+        de-allocation meanflow memory ...
+        done.
+    clean_turbulence
+        de-allocating turbulence memory ...
+        done.
+    clean_observations
+        de-allocate observation memory ...
+        done.
+    clean_tridiagonal
+    clean_gotm_fabm
+    Time spent on advection of FABM variables:  2.492700000000000E-002
+    Time spent on diffusion of FABM variables:  3.054100000000000E-002
+    Time spent on sink/source terms of FABM variables:  8.535500000000000E-002
+    done.
+ ------------------------------------------------------------------------
+ GOTM finished on 2021/02/25 at 19:29:14
+ ------------------------------------------------------------------------
+ CPU time:                      0.6111770      seconds
+ Simulated time/CPU time:        17529454.6796622     
+ ------------------------------------------------------------------------
+ GOTM:    v5.3-323-g9b80b810-dirty (master branch)
+ YAML:    0.1.0 (unknown branch)
+ flexout: 0.1.0 (unknown branch)
+ FABM:    v1.0.2-27-g3a0a3e8-dirty (master branch)
+ NetCDF:  4.5.0 of Apr 25 2018 15:35:52 $
+ ------------------------------------------------------------------------
+ Compiler: Intel 17.0.6.20171215

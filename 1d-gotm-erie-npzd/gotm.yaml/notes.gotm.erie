@@ -1,0 +1,164 @@
+## erie-00
+* getting the model woking
+* pre-testing setting / commenting / zeroing values
+* t_1: 8.0
+* temperature and salinity only
+* meteo from file: u10 v10 airp airt hum cloud
+
+## erie-01
+* changed t_1: 5.0
+* to "close" the temp difference between beginning and end of year
+
+## erie-02
+* added swr from FVCOM forcings data
+* meteo from file: u10 v10 airp airt hum cloud swr
+
+## erie-03
+from FVCOM forcings file erie_forcing_interp.nc:
+float air_temperature(time, node) ;
+    air_temperature:description = "Sea surface air temperature" ;
+* was using this for meteo: airt
+* yaml asks for: air temperatuer @ 2m
+* moved FVCOM air_temperature to sst, then set meteo: airt: method:0=constant
+* also, default had no column: option .. added this and specified corrrect column
+---> no errors, but output looks silly .. need to check if FVCOM forcings are SST, 
+    or if they are actually airt
+
+## erie-04
+* moved FVCOM air_temperature back to airt section
+* used sst file with only record for time 0 .. error:
+    FATAL ERROR:                                                                   
+    input::timeseries_file_update: 
+    End of file reached while attempting to read new 
+    data from in_dat/surface_sst.dat. Does this file 
+    span the entire simulated period?                                                                           
+* used sst from file with data spanning the simulation period: re-used sst from NNSA example
+---> in R, compared erie-02 and erie-04 .. they're equal and identical .. incl note in slides
+---> adding SST made no difference
+---> also note that 
+
+## erie-05
+* set sst method=0, then added constant_value=99.0 bc there was no placeholder for constant_value
+---> plot looks fine
+
+## erie-06
+* set sst method=0, then added constant_value=5.0 bc there was no placeholder for constant_value
+---> plot/matrix is identical to erie-05
+
+## erie-07
+* temperature: relax: tau: 0.0 ---> throws error, model doesn't run
+* temperature: relax: tau: 1.000000E-15 ---> clean model run, but temp is 5 degrees for entire simulation
+
+## erie-08
+* temperature: relax: tau: 100,000.0 ---> clean model run, weak stratification in summer
+* salinity tau was set to 86400, so I tested with a number in this magnitude
+
+## erie-09
+* temperature: relax: tau: 1,000,000.0 ---> clean model run, stronger stratification in summer
+
+## erie-10
+* temperature: relax: tau: commented-out section ---> clean model run, looks like "normal" plot
+* so, it looks like commenting-out looks like it uses the default super-large number
+
+## erie-11
+* run w/ FABM NPZD
+* tried with NPZD-CO3 .. error'd out:
+
+S,T,P  0.000000000000000E+000   4.43115866771903        1.00000000000000     
+CONCS  1.839611467376631E-004  5.201000000000000E-004  1.643494409678211E-002
+  100.000000000000       1.075322551442806E-003  5.199337375543818E-004      
+   1.839598360851996E-004  5.201000000000000E-004  0.000000000000000E+000      
+   FATAL ERROR: co2_dyn:POLYCO: Haltafall iteration did not converge.           
+
+## erie-12
+* switched to using node 5332, which is near CHRP 4 mooring
+* comparing temperature profile to observed temperatures from CHRP4 mooring
+* t_1: 8.0, no t_prof specified
+* airp: noticed scale_factor was 100.0 .. changed to 1.0
+* also, in R script that pre-processed the 
+
+## erie-13
+* temperature: method: 2=from file, using t_prof_2018_CHRP4.dat
+
+## erie-14
+* added scale_factor: 10.0 to both u10 and v10 --> rainbow
+* changed scale_factor: 2.0
+* thermocline is deeper
+
+## erie-15
+* changed u10 / v10 scale_factor: 1.0
+* added GLSEA sst for May - Oct 
+* sst seems to make no difference
+
+## erie-16
+* adding surface: fluxes:
+* FVCOM file has uwind_stress and vwind_stress with units Pa
+* this looks suspiciously like what the yaml file is asking for so I'm going to use them here
+* tried and got init_airsea error: 
+* "Not possible to calculate swr if heat and momentum fluxes are prescribed"
+* changed swr: method: from 3 to 2 (from file)
+--> THIS MADE A DIFFERENCE
+* thermocline is still too shallow, but it definitely looks more "real"
+
+## erie-17
+* added longwave from file
+* no difference
+
+## erie-18
+* messing with k_min
+* originally: k_min: 1.00000000E-06
+* set to: k_min: 5.00000000E-06
+
+## erie-19
+* set temperature method: 1=analytical, t_1: 9.0 for water column
+* should have done this earlier to check if temperature profiles are realistic
+* set k_min back to original value
+
+## erie-20
+* originally: k_min: 1.00000000E-06
+* set to: k_min: 2.00000000E-06
+* 
+## erie-21
+* set meteo all to constant=0 bc I've included heat and momentum fluxes from FVCOM
+
+## erie-22
+* found error with temperature relaxation: I had line in two places .. latest values likely read
+* but, ti_0=9.2 is set
+* use FVCOM meteo and calculate fluxes per Kondo
+* had to set SST to 0=constant bc I don't yet have SST for whole year
+* run for entire year: start 2018-01-01 to end 2018-12-31
+
+## erie-23
+* start 2018-05-01 to stop 2018-10-31
+
+## erie-24
+* back to entire year for simulation .. this makes sense bc the model needs to "spin up"
+* wanted to use observed temperature profile file with maximum relaxation tau for full year, but
+* can't do this because mooring t_profile is only 2018-05-31 to 2018-10-03
+* save this plot for Kondo bulk flux calculation
+
+## erie-25
+* same as erie-24, but with Fairall bulk flux calculation
+
+## erie-27
+* 2018-05-31 to 2018-10-02
+* Kondo
+* full relaxation to temperature profile
+
+## erie-28
+* 2018-05-31 to 2018-10-02
+* Fairall
+* full relaxation to temperature profile
+
+## erie-29
+* full year to allow spin up
+* Kondo bc it pushes thermocline deeper
+* k_min 1.0E-10 (default)
+
+## erie-30
+* using Dmitry's turbulence parameters from erie_gotmturb.inp_kepsilon ...
+* and details from paper "Modeling circulation and thermal structure in Lake Michigan: Annual cycle and interannual variability"
+* Belestky & Scwab 2001
+
+
+

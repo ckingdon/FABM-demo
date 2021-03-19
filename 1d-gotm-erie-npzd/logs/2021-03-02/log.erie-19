@@ -1,0 +1,163 @@
+ ------------------------------------------------------------------------
+ GOTM started on 2021/03/02 at 14:07:54
+ ------------------------------------------------------------------------
+    init_gotm
+ ------------------------------------------------------------------------
+        Reading yaml configuration from: yaml/gotm.erie-19.yaml
+        configuring modules ....
+    init_airsea_yaml
+        done
+    init_observations_yaml
+    init_stokes_drift_yaml
+        done
+    init_turbulence_yaml
+        done.
+    init_gotm_fabm_yaml
+        done.
+    init_meanflow_yaml
+        done
+    init_eqstate_yaml
+        done.
+        GOTM Simulation
+        Using           96  layers to resolve a depth of   24.0000000000000     
+        The station Erie element 5332 is situated at (lat,long) 
+   41.9491666700000       -81.7053833300000     
+        Erie element 5332
+        initializing modules....
+    init_input
+        done
+    init_time
+        Time step:         3600.00000000000       seconds
+        Time format:               2
+        Start:          2018-05-31 00:00:00
+        Stop:           2018-10-02 00:00:00
+         ==>          124  day(s) and                      0  seconds ==> 
+                  2976  micro time steps
+    post_init_meanflow
+        allocation meanflow memory..
+        done.
+    init_tridiagonal
+        sigma coordinates (zooming possible)
+    post_init_observations
+        allocation observation memory..
+        Using constant /mimic_3d/ext_pressure/h=   0.000000000000000E+000
+        Using constant /mimic_3d/ext_pressure/dpdx=   0.000000000000000E+000
+        Using constant /mimic_3d/ext_pressure/dpdy=   0.000000000000000E+000
+        Using constant /mimic_3d/w/height=   0.000000000000000E+000
+        Using constant /mimic_3d/zeta=   0.000000000000000E+000
+        Using constant /surface/wave/Hs=   0.000000000000000E+000
+        Using constant /surface/wave/Tz=   0.000000000000000E+000
+        Using constant /surface/wave/phiw=   0.000000000000000E+000
+        done.
+    post_init_stokes_drift
+        allocation stokes_drift memory..
+        Stokes drift off.
+        done.
+    post_init_turbulence
+        allocation turbulence memory..
+        done.
+         
+        --------------------------------------------------------
+        You are using the k-epsilon model
+        with the following properties:
+         
+            ce1                                  =   1.44000000000000     
+            ce2                                  =   1.92000000000000     
+            ce3minus                             = -0.744378943205702     
+            ce3plus                              =   1.00000000000000     
+            sig_k                                =   1.00000000000000     
+            sig_e                                =   1.20000006940017     
+         
+            Value of the stability function
+            in the log-law,                   cm0 =  0.527046261454271     
+            in shear-free turbulence,        cmsf =  0.730911229264925     
+         
+            von Karman constant,           kappa =  0.400000000000000     
+            homogeneous decay rate,            d =  -1.08695652173913     
+            spatial decay rate (no shear), alpha =  -7.95123897814375     
+            length-scale slope (no shear),     L =  4.595791868626506E-002
+            steady-state Richardson-number, Ri_st=  0.250000000000000     
+        --------------------------------------------------------
+         
+    post_init_airsea
+        Reading /surface/meteo/swr from:
+            in_dat/surface_meteo.dat
+        Reading /surface/fluxes/heat from:
+            in_dat/surface_fluxes.dat
+        Reading /surface/fluxes/tx from:
+            in_dat/surface_fluxes.dat
+        Reading /surface/fluxes/ty from:
+            in_dat/surface_fluxes.dat
+        Using constant /surface/meteo/precip=   0.000000000000000E+000
+        rain_impact=       F
+        calc_evaporation=  F
+        Reading /surface/sst from:
+            in_dat/surface_sst.dat
+        Using constant /surface/sss=   0.000000000000000E+000
+        done
+    register_all_variables()
+        register_coordinate_variables()
+        register_meanflow_variables()
+        register_airsea_variables()
+        register_observation_variables()
+        register_stokes_drift_variables()
+        register_turbulence_variables()
+        register_diagnostic_variables()
+        done.
+ ------------------------------------------------------------------------
+    saving initial conditions
+ Processing output category /state:
+   - temp
+   - salt
+   - u
+   - uo
+   - v
+   - vo
+   - u_taubo
+   - xP
+   - h
+   - ho
+   - num
+   - nuh
+   - nus
+   - tke
+   - tkeo
+   - eps
+ ------------------------------------------------------------------------
+    time_loop
+           0 %
+          10 %
+          20 %
+          30 %
+          40 %
+          50 %
+          60 %
+          70 %
+          80 %
+          90 %
+         100 %
+ ------------------------------------------------------------------------
+    clean_up
+    clean_meanflow
+        de-allocation meanflow memory ...
+        done.
+    clean_turbulence
+        de-allocating turbulence memory ...
+        done.
+    clean_observations
+        de-allocate observation memory ...
+        done.
+    clean_tridiagonal
+ ------------------------------------------------------------------------
+ GOTM finished on 2021/03/02 at 14:07:54
+ ------------------------------------------------------------------------
+ CPU time:                      0.3288750      seconds
+ Simulated time/CPU time:        32576510.3128222     
+ ------------------------------------------------------------------------
+ GOTM:    v5.3-323-g9b80b810-dirty (master branch)
+ YAML:    0.1.0 (unknown branch)
+ flexout: 0.1.0 (unknown branch)
+ FABM:    v1.0.2-27-g3a0a3e8-dirty (master branch)
+ NetCDF:  4.5.0 of Apr 25 2018 15:35:52 $
+ ------------------------------------------------------------------------
+ Compiler: Intel 17.0.6.20171215

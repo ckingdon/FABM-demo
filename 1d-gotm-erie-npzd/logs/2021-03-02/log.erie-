@@ -1,0 +1,10 @@
+ ------------------------------------------------------------------------
+ GOTM started on 2021/02/15 at 20:33:45
+ ------------------------------------------------------------------------
+    init_gotm
+ ------------------------------------------------------------------------
+ FATAL ERROR: GOTM now reads its configuration from gotm.yaml.
+    To use namelists instead, specify --read_nml.
+    To migrate namelists to yaml, specify --read_nml --write_yaml gotm.yaml.
+    To generate gotm.yaml with default settings, specify --write_yaml gotm.yaml.
+2
